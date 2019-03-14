@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+	span{
+		font-size: 12px;
+	}
+	body {
+		font-size: 24px;
+	}
+
+	
+	</style>
+	</head>
+	<body>
+		
+
+		<form action='/create' method='post'>
+			<input type="text" name="icerik" id="inputtext" autocomplete="off" required><br>
+			<input type="submit" value="Ekle" id="submit">
+		</form>
+
+		<hr>
+
+		<h3>todo!</h3>
+		<ol>
+		{% for data in icerik %}
+			<li>{{ data[1] }}</li><span><a href="/delete/{{ data[0] }}">delete</a> | <a href="/update/{{ data[0] }}">edit</a> | {{ data[2] }}</span>
+		{% endfor %}
+	</ol>
+
+
+		
+	</body>
+	<script>
+		document.getElementById("inputtext").focus();
+	</script>
+	</html>
